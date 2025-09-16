@@ -546,7 +546,8 @@ HERO SECTION
             </div>
         </section>
 
-        <!-- =================================================================
+
+                <!-- =================================================================
         FAQ SECTION
         ================================================================== -->
         <section class="section-padding">
@@ -604,6 +605,7 @@ HERO SECTION
                 </div>
             </div>
         </section>
+        
 
         <!-- =================================================================
         FINAL CTA SECTION - MODIFIED
@@ -784,43 +786,42 @@ HERO SECTION
                 el.style.opacity = '1';
             });
 
-            // FAQ Accordion
+            // ==========================================================
+            // FAQ Accordion - LOGIQUE CORRIGÉE
+            // ==========================================================
             const faqQuestions = document.querySelectorAll('.faq-question');
             faqQuestions.forEach(question => {
                 question.addEventListener('click', () => {
                     const answer = question.nextElementSibling;
                     const chevron = question.querySelector('.faq-chevron');
-                    const isOpen = !answer.classList.contains('max-h-0');
+                    const isCurrentlyOpen = answer.style.maxHeight;
 
-                    // Close all other open items
+                    // D'abord, on ferme TOUS les tiroirs
                     document.querySelectorAll('.faq-answer').forEach(ans => {
-                        if (ans !== answer) {
-                            ans.classList.add('max-h-0');
-                            ans.previousElementSibling.querySelector('.faq-chevron').classList.remove('rotate-180');
-                        }
+                        ans.style.maxHeight = null;
+                        ans.previousElementSibling.querySelector('.faq-chevron').classList.remove('rotate-180');
                     });
 
-                    // Toggle the clicked item
-                    if (isOpen) {
-                        answer.classList.add('max-h-0');
-                        chevron.classList.remove('rotate-180');
-                    } else {
-                        answer.classList.remove('max-h-0');
+                    // Si le tiroir cliqué n'était PAS ouvert, on l'ouvre.
+                    // S'il était déjà ouvert, la première étape l'a fermé et on ne fait rien de plus.
+                    if (!isCurrentlyOpen) {
                         answer.style.maxHeight = answer.scrollHeight + 'px';
                         chevron.classList.add('rotate-180');
                     }
                 });
             });
 
-            // Adjust max-height on window resize for open accordions
+            // Ajuste la hauteur max des tiroirs ouverts lors du redimensionnement de la fenêtre
             window.addEventListener('resize', () => {
                 document.querySelectorAll('.faq-answer').forEach(answer => {
-                    if (!answer.classList.contains('max-h-0')) {
+                    if (answer.style.maxHeight) { // S'il a une hauteur max (donc s'il est ouvert)
                         answer.style.maxHeight = answer.scrollHeight + 'px';
                     }
                 });
             });
         });
     </script>
+
+    
 </body>
 </html>
