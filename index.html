@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julien Moreau - Consultant Marketing B2B | Levier Marketing</title>
+    <meta name="description" content="Stratégies marketing pragmatiques pour PME B2B. Transformez vos visiteurs en clients rentables avec un expert qui comprend votre réalité terrain.">
+    <meta name="author" content="Julien Moreau - Levier Marketing">
+    <meta name="keywords" content="consultant marketing B2B, marketing PME, génération leads B2B, directeur marketing externalisé, prospection LinkedIn">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Tailwind Config & CSS -->
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background text-foreground antialiased;
+                font-family: 'Poppins', sans-serif;
+            }
+            h1, h2, h3, h4 {
+                @apply font-bold text-foreground;
+            }
+            section {
+                @apply py-16 md:py-24;
+            }
+            .container-padding {
+                 @apply px-4 md:px-6 lg:px-8;
+            }
+            .section-padding {
+                @apply py-16 md:py-24;
+            }
+            /* Initial state for load animations */
+            .animate-on-load {
+                opacity: 0;
+            }
+        }
+        @layer components {
+            .gradient-primary {
+                @apply bg-gradient-to-br from-blue-500 to-primary text-primary-foreground;
+            }
+        }
+    </style>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            border: '#e2e5e9',
+            input: '#e2e5e9',
+            ring: '#003580',
+            background: '#ffffff',
+            foreground: '#344256',
+            primary: {
+              DEFAULT: '#003580',
+              foreground: '#ffffff',
+              light: '#0047a9'
+            },
+            secondary: {
+              DEFAULT: '#f6f8fa',
+              foreground: '#344256',
+            },
+            muted: {
+              DEFAULT: '#f6f8fa',
+              foreground: '#627084',
+            },
+            accent: {
+              DEFAULT: '#e2e5e9',
+              foreground: '#344256',
+            },
+            card: {
+              DEFAULT: '#ffffff',
+              foreground: '#344256',
+            },
+            success: '#16a34a',
+            'muted-foreground': '#627084',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+          },
+          fontSize: {
+            'hero': ['clamp(2.5rem, 5vw, 3.75rem)', { lineHeight: '1.1', fontWeight: '700' }],
+            'section-title': ['clamp(1.8rem, 4vw, 2.25rem)', { lineHeight: '1.2', fontWeight: '700' }],
+            'subsection': ['clamp(1.25rem, 3vw, 1.5rem)', { lineHeight: '2rem', fontWeight: '600' }],
+            'body-large': ['1.125rem', { lineHeight: '1.75rem' }],
+            'body': ['1rem', { lineHeight: '1.75rem' }],
+          },
+          boxShadow: {
+            'elegant': '0 10px 30px -15px rgba(0, 53, 128, 0.2)',
+            'button': '0 4px 15px -5px rgba(0, 53, 128, 0.4)',
+            'card': '0 4px 20px -10px rgba(0, 53, 128, 0.15)',
+          },
+          spacing: {
+            '22': '5.5rem', // For methodology section line
+          },
+          keyframes: {
+            'fade-in': {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            'slide-up': {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            'fade-in': 'fade-in 0.8s ease-out forwards',
+            'slide-up': 'slide-up 0.8s ease-out forwards',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-background">
+
+    <div class="min-h-screen bg-background">
+
+        <!-- =================================================================
+        HEADER & NAVIGATION
+        ================================================================== -->
+        <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-md shadow-elegant">
+            <nav class="container mx-auto container-padding">
+                <div class="flex items-center justify-between py-4">
+                    <!-- Logo -->
+                    <div class="flex items-center space-x-2">
+                        <div class="text-2xl font-bold text-primary">Levier Marketing</div>
+                    </div>
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">À Propos</button>
+                        <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">Solutions</button>
+                        <button onclick="document.getElementById('methodology').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">Méthodologie</button>
+                        <button onclick="document.getElementById('testimonials').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">Résultats</button>
+                        <button onclick="document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">Ressources</button>
+                    </div>
+                    <!-- Desktop CTA -->
+                    <div class="hidden md:block">
+                        <button onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 py-2 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
+                            Planifier un appel stratégique
+                        </button>
+                    </div>
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                            <line x1="4" x2="20" y1="12" y2="12"></line>
+                            <line x1="4" x2="20" y1="6" y2="6"></line>
+                            <line x1="4" x2="20" y1="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- =================================================================
+        HERO SECTION
+        ================================================================== -->
+        <section class="section-padding pt-32" style="background: linear-gradient(180deg, #F6F8FA 0%, #FFFFFF 100%);">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-hero mb-6 animate-on-load animate-fade-in">Arrêtez de Dépenser en Marketing. <br><span class="text-primary">Commencez à Investir.</span></h1>
+                    <p class="text-body-large text-muted-foreground mb-8 animate-on-load animate-slide-up [animation-delay:200ms]">Stratégies marketing B2B pragmatiques pour PME industrielles et de services. Transformons vos visiteurs en clients rentables.</p>
+                    <p class="text-body mb-12 max-w-3xl mx-auto animate-on-load animate-slide-up [animation-delay:300ms]">En tant qu'ancien Directeur Marketing de PME, je connais votre réalité. Mon rôle n'est pas de vous vendre des services à la mode, mais de construire avec vous un système d'acquisition de clients fiable, mesurable et adapté à votre budget.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-load animate-slide-up [animation-delay:400ms]">
+                        <button onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap font-medium h-12 rounded-lg text-lg px-8 py-4 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
+                            Planifier mon audit stratégique offert
+                        </button>
+                        <button onclick="document.getElementById('methodology').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-12 rounded-lg text-lg px-8 py-4 transition-all hover:-translate-y-0.5 duration-300">
+                            Découvrir mon approche
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        ABOUT SECTION
+        ================================================================== -->
+        <section id="about" class="section-padding">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-section-title mb-6">Un Partenaire qui Comprend Votre Réalité</h2>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <img src="https://i.imgur.com/r63G3zW.jpg" alt="Portrait professionnel de Julien Moreau" class="w-full max-w-md mx-auto rounded-xl shadow-elegant">
+                        </div>
+                        <div class="space-y-6">
+                            <h3 class="text-subsection">De Directeur Marketing à Consultant Stratégique</h3>
+                            <div class="space-y-4 text-body text-muted-foreground">
+                                <p>Pendant plus de 10 ans, j'ai été Directeur Marketing et Commercial au sein d'une PME industrielle que j'ai accompagnée de 15 à 80 collaborateurs. J'ai vécu de l'intérieur les nuits blanches, la pression des objectifs et la frustration de devoir justifier chaque euro dépensé.</p>
+                                <p>Le déclic ? J'ai vu trop de dirigeants passionnés se faire abuser par des agences déconnectées de la réalité du terrain, vendant des solutions complexes et coûteuses avec peu de résultats tangibles. Le marketing B2B pour une PME n'est pas une affaire de jargon ou de tendances, mais de bon sens, de rigueur et de résultats.</p>
+                                <p>Aujourd'hui, ma mission est de vous offrir ce que j'aurais rêvé d'avoir : un expert pragmatique qui parle votre langage et se concentre sur un seul objectif : faire de votre marketing le levier le plus rentable de votre croissance. Mon approche n'est pas celle d'un prestataire, mais d'un partenaire stratégique engagé à vos côtés.</p>
+                            </div>
+                            <div class="space-y-4 pt-6">
+                                <div class="flex items-start space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-primary mt-1 flex-shrink-0"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-foreground">Une expertise de terrain</h4>
+                                        <p class="text-sm text-muted-foreground">10 ans d'expérience opérationnelle en PME.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-primary mt-1 flex-shrink-0"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-foreground">Une approche 100% sur-mesure</h4>
+                                        <p class="text-sm text-muted-foreground">Pas de solutions "prêtes-à-porter", uniquement des stratégies adaptées à vos enjeux.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-primary mt-1 flex-shrink-0"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-foreground">Une obsession pour le ROI</h4>
+                                        <p class="text-sm text-muted-foreground">Chaque action est pensée pour générer un retour sur investissement mesurable.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        SERVICES SECTION
+        ================================================================== -->
+        <section id="services" class="section-padding bg-muted/30">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-section-title mb-6">Des Solutions Conçues pour la Croissance des PME B2B</h2>
+                        <p class="text-body-large text-muted-foreground max-w-3xl mx-auto">Pas de catalogue de services interminable. Je propose trois offres claires et progressives, conçues pour vous apporter de la clarté, structurer vos actions et accélérer votre développement commercial.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Service Card 1: Audit -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant hover:scale-105">
+                            <div class="flex flex-col space-y-1.5 p-6 pb-4">
+                                <h3 class="text-subsection text-center mb-2">Audit Stratégique 360°</h3>
+                                <p class="text-sm text-center text-muted-foreground">La première étape indispensable pour arrêter de naviguer à vue. Nous analysons ensemble votre situation actuelle pour vous livrer une feuille de route claire et priorisée.</p>
+                            </div>
+                            <div class="p-6 pt-0 space-y-6 flex-grow flex flex-col">
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-primary mb-2">Idéal pour :</h4>
+                                    <p class="text-muted-foreground text-sm">Le dirigeant qui sent que son marketing est inefficace mais ne sait pas par où commencer.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-3">Livrables clés :</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Analyse de votre positionnement et de votre message</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Évaluation de votre présence en ligne (site web, LinkedIn)</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Identification des 3 leviers de croissance prioritaires</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Rapport de synthèse avec un plan d'action pour les 90 prochains jours</span></li>
+                                    </ul>
+                                </div>
+                                <div class="border-t pt-4 mt-auto">
+                                    <p class="text-sm text-muted-foreground mb-4">Offert lors de notre premier appel stratégique de 45 min.</p>
+                                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-11 px-6 py-2 w-full transition-all hover:-translate-y-0.5 duration-300">Obtenir ma feuille de route</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Service Card 2: Main Offer -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant border-primary shadow-card scale-105">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                                <span class="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">Offre principale</span>
+                            </div>
+                            <div class="flex flex-col space-y-1.5 p-6 pb-4">
+                                <h3 class="text-subsection text-center mb-2">Accompagnement "Directeur Marketing Externalisé"</h3>
+                                <p class="text-sm text-center text-muted-foreground">Bénéficiez de l'expertise d'un Directeur Marketing senior sans le coût d'un recrutement à temps plein. Je deviens votre pilote stratégique et opérationnel pour structurer et déployer votre plan marketing.</p>
+                            </div>
+                            <div class="p-6 pt-0 space-y-6 flex-grow flex flex-col">
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-primary mb-2">Idéal pour :</h4>
+                                    <p class="text-muted-foreground text-sm">La PME ambitieuse qui veut accélérer sa croissance mais n'a pas les ressources ou l'expertise en interne.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-3">Livrables clés :</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Définition de la stratégie marketing annuelle</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Pilotage des actions (refonte de site, création de contenu, campagnes...)</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Mise en place d'indicateurs de performance (KPIs)</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Comités de pilotage mensuels et reporting</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Montée en compétence de vos équipes</span></li>
+                                    </ul>
+                                </div>
+                                <div class="border-t pt-4 mt-auto">
+                                    <p class="text-sm text-muted-foreground mb-4">Sur devis, accompagnement mensuel (engagement de 6 mois minimum).</p>
+                                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 py-2 w-full gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">Discutons de votre projet</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Service Card 3: LinkedIn -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant hover:scale-105">
+                            <div class="flex flex-col space-y-1.5 p-6 pb-4">
+                                <h3 class="text-subsection text-center mb-2">Atelier "Prospection LinkedIn Performante"</h3>
+                                <p class="text-sm text-center text-muted-foreground">Une formation-action intensive d'une journée pour vous et votre équipe commerciale. Transformez LinkedIn en votre meilleur outil de génération de rendez-vous qualifiés.</p>
+                            </div>
+                            <div class="p-6 pt-0 space-y-6 flex-grow flex flex-col">
+                                <div class="flex-grow">
+                                    <h4 class="font-semibold text-primary mb-2">Idéal pour :</h4>
+                                    <p class="text-muted-foreground text-sm">Les équipes commerciales qui ont besoin de moderniser leurs méthodes de prospection B2B.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary mb-3">Livrables clés :</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Optimisation des profils LinkedIn pour la conversion</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Méthodologie pour identifier et contacter des prospects ciblés</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Modèles de messages éprouvés</span></li>
+                                        <li class="flex items-start space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success mt-0.5 flex-shrink-0"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg><span class="text-sm">Plan d'action individuel pour chaque participant</span></li>
+                                    </ul>
+                                </div>
+                                <div class="border-t pt-4 mt-auto">
+                                    <p class="text-sm text-muted-foreground mb-4">Forfait journée, en intra-entreprise.</p>
+                                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-11 px-6 py-2 w-full transition-all hover:-translate-y-0.5 duration-300">Demander le programme</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        METHODOLOGY SECTION
+        ================================================================== -->
+        <section id="methodology" class="section-padding">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-section-title mb-6">Ma Méthodologie : De la Confusion à la Clarté en 4 Étapes</h2>
+                        <p class="text-body-large text-muted-foreground">Chaque PME est unique, mais le succès d'une stratégie marketing repose toujours sur une méthode rigoureuse. Voici le parcours que nous suivrons ensemble pour garantir des résultats concrets.</p>
+                    </div>
+                    <div class="space-y-12">
+                        <!-- Step 1 -->
+                        <div class="relative">
+                            <div class="absolute left-8 top-16 w-0.5 h-full bg-border -z-10"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mr-6 flex-shrink-0">01</div>
+                                <div class="flex-1"><h3 class="text-subsection font-bold text-foreground">Diagnostic &amp; Immersion</h3></div>
+                            </div>
+                            <div class="ml-22"><p class="text-body text-muted-foreground leading-relaxed">Notre collaboration commence par une phase d'écoute profonde. J'analyse vos objectifs, vos défis, votre marché et vos clients. C'est le fondement indispensable pour construire une stratégie qui vous ressemble et qui fonctionne.</p></div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="relative">
+                             <div class="absolute left-8 top-16 w-0.5 h-full bg-border -z-10"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mr-6 flex-shrink-0">02</div>
+                                <div class="flex-1"><h3 class="text-subsection font-bold text-foreground">Co-construction de la Feuille de Route</h3></div>
+                            </div>
+                            <div class="ml-22"><p class="text-body text-muted-foreground leading-relaxed">Sur la base du diagnostic, nous élaborons ensemble votre plan d'action marketing. Pas de rapport de 100 pages, mais une feuille de route claire, avec des objectifs mesurables (KPIs), un budget et un calendrier réaliste.</p></div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="relative">
+                             <div class="absolute left-8 top-16 w-0.5 h-full bg-border -z-10"></div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mr-6 flex-shrink-0">03</div>
+                                <div class="flex-1"><h3 class="text-subsection font-bold text-foreground">Déploiement &amp; Pilotage</h3></div>
+                            </div>
+                            <div class="ml-22"><p class="text-body text-muted-foreground leading-relaxed">Je vous accompagne dans la mise en œuvre. Selon vos besoins, je peux piloter les prestataires, former vos équipes ou prendre en charge directement certaines actions. Nous avançons, mesurons et ajustons en permanence.</p></div>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="relative">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mr-6 flex-shrink-0">04</div>
+                                <div class="flex-1"><h3 class="text-subsection font-bold text-foreground">Mesure &amp; Optimisation Continue</h3></div>
+                            </div>
+                            <div class="ml-22"><p class="text-body text-muted-foreground leading-relaxed">Le marketing n'est pas une science exacte, c'est un processus d'amélioration continue. Nous analysons les résultats ensemble lors de points réguliers pour optimiser les performances et maximiser votre retour sur investissement.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        TESTIMONIALS SECTION
+        ================================================================== -->
+        <section id="testimonials" class="section-padding bg-muted/30">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-section-title mb-6">Leurs Résultats, Votre Garantie</h2>
+                        <p class="text-body-large text-muted-foreground">La meilleure façon de juger de mon travail est d'écouter ceux qui m'ont fait confiance.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Testimonial Card 1 -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full shadow-card hover:shadow-elegant transition-all duration-300">
+                            <div class="p-8">
+                                <div class="mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary opacity-50"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg></div>
+                                <blockquote class="text-body-large mb-8 leading-relaxed">"Avant de travailler avec Julien, nous investissions dans le marketing sans vraiment savoir ce qui fonctionnait. Nous étions invisibles en ligne. Son approche structurée et son expérience de la réalité des PME ont tout changé. En 6 mois, il a clarifié notre message, refondu notre site et mis en place une stratégie de contenu sur LinkedIn. Le résultat : notre nombre de leads qualifiés a triplé et notre chiffre d'affaires a augmenté de 15%. C'est le meilleur investissement que nous ayons fait."</blockquote>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-16 h-16 rounded-full overflow-hidden bg-muted">
+                                        <img src="https://i.imgur.com/7g5zJ8g.jpg" alt="Photo de Sophie Bernard" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-foreground">Sophie Bernard</div>
+                                        <div class="text-sm text-muted-foreground">CEO, Métal-Précision SAS</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial Card 2 -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full shadow-card hover:shadow-elegant transition-all duration-300">
+                            <div class="p-8">
+                                <div class="mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary opacity-50"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg></div>
+                                <blockquote class="text-body-large mb-8 leading-relaxed">"Julien n'est pas un consultant ordinaire. C'est un véritable partenaire qui s'est imprégné de notre culture d'entreprise. Son atelier LinkedIn a été un électrochoc pour notre équipe commerciale. Une approche pragmatique, directement applicable, qui a généré des résultats dès la première semaine."</blockquote>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-16 h-16 rounded-full overflow-hidden bg-muted">
+                                        <img src="https://i.imgur.com/w9Uu1hG.jpg" alt="Photo de Marc Dubois" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-foreground">Marc Dubois</div>
+                                        <div class="text-sm text-muted-foreground">Gérant, Service-Tech</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        RESOURCES / LEAD MAGNET SECTION
+        ================================================================== -->
+        <section id="resources" class="section-padding">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-section-title mb-6">Votre Marketing est-il un Centre de Coût ou un Moteur de Croissance ?</h2>
+                    </div>
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm shadow-elegant">
+                        <div class="p-8 md:p-12">
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <img src="https://i.imgur.com/tYt3LwN.jpg" alt="Mockup de l'auto-diagnostic marketing" class="w-full max-w-sm mx-auto">
+                                </div>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h3 class="text-subsection mb-4">L'Auto-Diagnostic Marketing pour PME</h3>
+                                        <p class="text-body-large text-primary mb-4">La checklist en 7 piliers pour auditer votre stratégie et identifier vos 3 actions prioritaires pour générer des leads qualifiés ce trimestre.</p>
+                                        <p class="text-body text-muted-foreground">Recevez gratuitement l'outil que j'utilise avec mes clients lors de nos premiers échanges. En 20 minutes, vous obtiendrez une vision claire des forces et des faiblesses de votre marketing actuel. Fini le flou, place à l'action.</p>
+                                    </div>
+                                    <form class="space-y-4">
+                                        <div>
+                                            <input type="text" placeholder="Votre prénom" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm mb-3">
+                                            <input type="email" placeholder="Votre email professionnel" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm">
+                                        </div>
+                                        <button type="submit" class="inline-flex items-center justify-center whitespace-nowrap font-medium h-12 rounded-lg px-8 text-base w-full gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                                            Télécharger mon auto-diagnostic
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        BLOG SECTION
+        ================================================================== -->
+        <section class="section-padding bg-muted/30">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-section-title mb-6">Levier de Croissance : Analyses &amp; Conseils Pragmatiques</h2>
+                        <p class="text-body-large text-muted-foreground">Retrouvez ici mes analyses et retours d'expérience pour aider les dirigeants de PME à prendre les bonnes décisions marketing.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Blog Card 1 -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group">
+                            <div class="flex flex-col space-y-1.5 p-6 pb-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-xs font-medium text-primary uppercase tracking-wide">Stratégie d'Acquisition</span>
+                                    <span class="text-xs text-muted-foreground">8 min</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Les 3 erreurs de site web qui coûtent des milliers d'euros aux PME industrielles</h3>
+                            </div>
+                            <div class="p-6 pt-0 mt-auto">
+                                <p class="text-muted-foreground text-sm leading-relaxed mb-6">Votre site n'est pas une brochure. C'est votre commercial le plus travailleur. Pourtant, 90% des sites de PME B2B commettent ces 3 erreurs fatales qui font fuir les prospects...</p>
+                                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
+                                    Lire l'article
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Blog Card 2 -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group">
+                            <div class="flex flex-col space-y-1.5 p-6 pb-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-xs font-medium text-primary uppercase tracking-wide">LinkedIn B2B</span>
+                                    <span class="text-xs text-muted-foreground">6 min</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Prospection LinkedIn : Arrêtez de vendre, commencez à aider. La méthode en 3 étapes.</h3>
+                            </div>
+                            <div class="p-6 pt-0 mt-auto">
+                                <p class="text-muted-foreground text-sm leading-relaxed mb-6">Votre équipe commerciale passe des heures sur LinkedIn pour des résultats décevants ? C'est normal. L'ère du 'copier-coller' est terminée. Voici une approche qui...</p>
+                                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
+                                    Lire l'article
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Blog Card 3 -->
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group">
+                            <div class="flex flex-col space-y-1.5 p-6 pb-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-xs font-medium text-primary uppercase tracking-wide">Pilotage Marketing</span>
+                                    <span class="text-xs text-muted-foreground">5 min</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Les 3 seuls KPIs marketing que tout dirigeant de PME devrait suivre chaque mois.</h3>
+                            </div>
+                            <div class="p-6 pt-0 mt-auto">
+                                <p class="text-muted-foreground text-sm leading-relaxed mb-6">Noyé sous les données ? Taux de clics, impressions, portée... Oubliez la complexité. Pour piloter votre croissance, seuls 3 indicateurs comptent vraiment. Les voici...</p>
+                                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
+                                    Lire l'article
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        FAQ SECTION
+        ================================================================== -->
+        <section class="section-padding">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-section-title mb-6">Vos Questions, Mes Réponses</h2>
+                    </div>
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm shadow-card">
+                        <div class="p-8">
+                            <div class="space-y-0" id="faq-accordion">
+                                <!-- FAQ Item 1 -->
+                                <div class="border-b border-border last:border-b-0">
+                                    <button class="faq-question w-full py-6 flex items-center justify-between text-left group">
+                                        <h3 class="text-lg font-semibold text-foreground group-hover:text-primary transition-colors pr-4">Quelle est la différence entre vous et une agence marketing classique ?</h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                    </button>
+                                    <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                        <p class="text-muted-foreground leading-relaxed pb-6">C'est une excellente question. Une agence déploie une équipe, souvent avec des juniors, sur de nombreux comptes. En travaillant avec moi, vous avez un interlocuteur unique et senior qui a une expérience réelle de la direction marketing en PME. Je ne délègue pas la stratégie. Nous construisons une relation de partenaire, pas de fournisseur.</p>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item 2 -->
+                                <div class="border-b border-border last:border-b-0">
+                                    <button class="faq-question w-full py-6 flex items-center justify-between text-left group">
+                                        <h3 class="text-lg font-semibold text-foreground group-hover:text-primary transition-colors pr-4">Nous avons un petit budget. Pouvons-nous quand même travailler ensemble ?</h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                    </button>
+                                    <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                        <p class="text-muted-foreground leading-relaxed pb-6">Mon objectif est de garantir un retour sur investissement. L'accompagnement "Directeur Marketing Externalisé" est conçu pour les PME prêtes à investir de manière structurée. Cependant, l'Audit Stratégique 360° ou l'Atelier LinkedIn sont des portes d'entrée parfaites pour obtenir une valeur immense avec un investissement maîtrisé. Le plus simple est d'en discuter.</p>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item 3 -->
+                                <div class="border-b border-border last:border-b-0">
+                                    <button class="faq-question w-full py-6 flex items-center justify-between text-left group">
+                                        <h3 class="text-lg font-semibold text-foreground group-hover:text-primary transition-colors pr-4">Comment mesurez-vous le succès de vos interventions ?</h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                    </button>
+                                    <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                        <p class="text-muted-foreground leading-relaxed pb-6">La mesure est au cœur de mon approche. Avant toute collaboration, nous définissons ensemble des indicateurs de performance (KPIs) clairs et alignés sur VOS objectifs business : nombre de leads qualifiés, coût d'acquisition client, taux de conversion, etc. Ces KPIs sont suivis dans un tableau de bord partagé et discutés lors de nos points mensuels.</p>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item 4 -->
+                                <div class="border-b border-border last:border-b-0">
+                                    <button class="faq-question w-full py-6 flex items-center justify-between text-left group">
+                                        <h3 class="text-lg font-semibold text-foreground group-hover:text-primary transition-colors pr-4">Vous ne connaissez pas parfaitement notre secteur d'activité très spécifique. Est-ce un problème ?</h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300"><path d="m6 9 6 6 6-6"></path></svg>
+                                    </button>
+                                    <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                        <p class="text-muted-foreground leading-relaxed pb-6">Au contraire, c'est une force. Vous êtes l'expert de votre métier, je suis l'expert de la méthodologie marketing. Ma première étape est toujours une phase d'immersion profonde pour comprendre vos enjeux. Mon regard extérieur, combiné à votre expertise interne, est ce qui nous permettra de challenger l'existant et de trouver des solutions innovantes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        FINAL CTA SECTION
+        ================================================================== -->
+        <section id="appointment" class="section-padding bg-primary text-primary-foreground">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-section-title mb-6">Prêt(e) à Transformer Votre Marketing en Levier de Croissance ?</h2>
+                    <p class="text-body-large mb-12 opacity-90">Le moyen le plus efficace de savoir si nous pouvons collaborer est d'en discuter. Réservez directement dans mon agenda un créneau pour un premier échange, gratuit et sans engagement.</p>
+                    <div class="rounded-lg border shadow-sm bg-primary-foreground text-foreground shadow-elegant">
+                        <div class="flex flex-col space-y-1.5 p-6">
+                            <h3 class="font-semibold tracking-tight text-2xl">Session Stratégique Offerte (45 min)</h3>
+                            <p class="text-sm text-muted-foreground">Cet échange confidentiel est conçu pour vous apporter un maximum de valeur. Notre objectif :</p>
+                        </div>
+                        <div class="p-6 pt-0 space-y-6">
+                            <div class="grid md:grid-cols-3 gap-4 text-left">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
+                                    <p class="text-sm">Analyser votre défi marketing N°1 actuel.</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
+                                    <p class="text-sm">Identifier les opportunités inexploitées.</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
+                                    <p class="text-sm">Vous donner au moins une idée concrète à implémenter immédiatement.</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-muted-foreground">À l'issue de cet appel, vous aurez une vision plus claire, et nous saurons si un accompagnement est la bonne étape pour vous.</p>
+                            <button class="inline-flex items-center justify-center whitespace-nowrap font-medium h-12 rounded-lg w-full md:w-auto gradient-primary shadow-button text-lg px-8 py-4 hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                                Réserver ma session stratégique
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        FOOTER
+        ================================================================== -->
+        <footer class="bg-foreground text-background py-16">
+            <div class="container mx-auto container-padding">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Column 1: Brand -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Levier Marketing</h3>
+                            <p class="text-background/80 mb-4">Des stratégies marketing pragmatiques pour les PME B2B.</p>
+                            <p class="text-background/60 text-sm">© 2024 Levier Marketing - Tous droits réservés.</p>
+                        </div>
+                        <!-- Column 2: Links -->
+                        <div>
+                            <h4 class="font-semibold mb-4">Explorer</h4>
+                            <div class="space-y-2">
+                                <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });" class="block text-background/80 hover:text-background transition-colors">À Propos</button>
+                                <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' });" class="block text-background/80 hover:text-background transition-colors">Solutions</button>
+                                <button onclick="document.getElementById('methodology').scrollIntoView({ behavior: 'smooth' });" class="block text-background/80 hover:text-background transition-colors">Méthodologie</button>
+                                <button onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });" class="block text-background/80 hover:text-background transition-colors">Planifier un appel</button>
+                            </div>
+                        </div>
+                        <!-- Column 3: Contact -->
+                        <div>
+                            <h4 class="font-semibold mb-4">Contact</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                                    <span class="text-background/80">julien.moreau@leviermarketing.fr</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    <span class="text-background/80">+33 6 12 34 56 78</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                    <span class="text-background/80">Profil LinkedIn</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-t border-background/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                        <!-- Moved copyright here for better layout on mobile -->
+                        <div class="flex space-x-6 mt-4 md:mt-0">
+                            <a href="#" class="text-background/60 hover:text-background text-sm transition-colors">Mentions Légales</a>
+                            <a href="#" class="text-background/60 hover:text-background text-sm transition-colors">Politique de Confidentialité</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // On-load animations
+            const animatedElements = document.querySelectorAll('.animate-on-load');
+            animatedElements.forEach(el => {
+                el.style.opacity = '1';
+            });
+
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const chevron = question.querySelector('.faq-chevron');
+                    const isOpen = !answer.classList.contains('max-h-0');
+
+                    // Close all other open items
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        if (ans !== answer) {
+                            ans.classList.add('max-h-0');
+                            ans.previousElementSibling.querySelector('.faq-chevron').classList.remove('rotate-180');
+                        }
+                    });
+
+                    // Toggle the clicked item
+                    if (isOpen) {
+                        answer.classList.add('max-h-0');
+                        chevron.classList.remove('rotate-180');
+                    } else {
+                        answer.classList.remove('max-h-0');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        chevron.classList.add('rotate-180');
+                    }
+                });
+            });
+
+            // Adjust max-height on window resize for open accordions
+            window.addEventListener('resize', () => {
+                document.querySelectorAll('.faq-answer').forEach(answer => {
+                    if (!answer.classList.contains('max-h-0')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
