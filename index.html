@@ -165,9 +165,7 @@ HERO SECTION
     class="section-padding pt-32 relative" 
     style="
         background-image: 
-            /* CORRECTION : L'opacité du dégradé est réduite de 95% à 85% pour mieux voir l'image */
             linear-gradient(180deg, rgba(246, 248, 250, 0.70) 0%, rgba(255, 255, 255, 0.70) 100%),
-            /* Couche 2 (en dessous) : Votre image de fond */
             url('images/hero-background.webp');
         background-size: cover;
         background-position: center;
@@ -191,9 +189,9 @@ HERO SECTION
 </section>
 
         <!-- =================================================================
-        ABOUT SECTION
+        ABOUT SECTION (Fond blanc)
         ================================================================== -->
-        <section id="about" class="section-padding">
+        <section id="about" class="section-padding bg-background">
             <div class="container mx-auto container-padding">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
@@ -201,7 +199,6 @@ HERO SECTION
                     </div>
                     <div class="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
-                            <!-- MODIFICATION : Chemin de l'image mis à jour -->
                             <img src="images/portrait-julien-moreau.webp" alt="Portrait professionnel de Julien Moreau" class="w-full max-w-md mx-auto rounded-xl shadow-elegant">
                         </div>
                         <div class="space-y-6">
@@ -241,9 +238,10 @@ HERO SECTION
         </section>
 
         <!-- =================================================================
-        SERVICES SECTION
+        SERVICES SECTION (Fond gris)
         ================================================================== -->
-        <section id="services" class="section-padding bg-muted/30">
+        <!-- MODIFICATION : Remplacement de bg-muted/30 par bg-secondary pour un meilleur contraste -->
+        <section id="services" class="section-padding bg-secondary">
             <div class="container mx-auto container-padding">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
@@ -339,9 +337,9 @@ HERO SECTION
         </section>
 
         <!-- =================================================================
-        METHODOLOGY SECTION
+        METHODOLOGY SECTION (Fond blanc)
         ================================================================== -->
-        <section id="methodology" class="section-padding">
+        <section id="methodology" class="section-padding bg-background">
             <div class="container mx-auto container-padding">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
@@ -390,9 +388,10 @@ HERO SECTION
         </section>
 
         <!-- =================================================================
-        TESTIMONIALS SECTION
+        TESTIMONIALS SECTION (Fond gris)
         ================================================================== -->
-        <section id="testimonials" class="section-padding bg-muted/30">
+        <!-- MODIFICATION : Remplacement de bg-muted/30 par bg-secondary pour un meilleur contraste -->
+        <section id="testimonials" class="section-padding bg-secondary">
             <div class="container mx-auto container-padding">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
@@ -407,7 +406,6 @@ HERO SECTION
                                 <blockquote class="text-body-large mb-8 leading-relaxed">"Avant de travailler avec Julien, nous investissions dans le marketing sans vraiment savoir ce qui fonctionnait. Nous étions invisibles en ligne. Son approche structurée et son expérience de la réalité des PME ont tout changé. En 6 mois, il a clarifié notre message, refondu notre site et mis en place une stratégie de contenu sur LinkedIn. Le résultat : notre nombre de leads qualifiés a triplé et notre chiffre d'affaires a augmenté de 15%. C'est le meilleur investissement que nous ayons fait."</blockquote>
                                 <div class="flex items-center space-x-4">
                                     <div class="w-16 h-16 rounded-full overflow-hidden bg-muted">
-                                        <!-- MODIFICATION : Chemin de l'image mis à jour -->
                                         <img src="images/temoignage-sophie-bernard.webp" alt="Photo de Sophie Bernard" class="w-full h-full object-cover">
                                     </div>
                                     <div>
@@ -424,7 +422,6 @@ HERO SECTION
                                 <blockquote class="text-body-large mb-8 leading-relaxed">"Julien n'est pas un consultant ordinaire. C'est un véritable partenaire qui s'est imprégné de notre culture d'entreprise. Son atelier LinkedIn a été un électrochoc pour notre équipe commerciale. Une approche pragmatique, directement applicable, qui a généré des résultats dès la première semaine."</blockquote>
                                 <div class="flex items-center space-x-4">
                                     <div class="w-16 h-16 rounded-full overflow-hidden bg-muted">
-                                        <!-- MODIFICATION : Chemin de l'image mis à jour -->
                                         <img src="images/temoignage-marc-dubois.webp" alt="Photo de Marc Dubois" class="w-full h-full object-cover">
                                     </div>
                                     <div>
@@ -440,9 +437,9 @@ HERO SECTION
         </section>
 
         <!-- =================================================================
-        RESOURCES / LEAD MAGNET SECTION
+        RESOURCES / LEAD MAGNET SECTION (Fond blanc)
         ================================================================== -->
-        <section id="resources" class="section-padding">
+        <section id="resources" class="section-padding bg-background">
             <div class="container mx-auto container-padding">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
@@ -452,7 +449,6 @@ HERO SECTION
                         <div class="p-8 md:p-12">
                             <div class="grid md:grid-cols-2 gap-8 items-center">
                                 <div>
-                                    <!-- MODIFICATION : Chemin de l'image mis à jour -->
                                     <img src="images/ressource-autodiagnostic-mockup.webp" alt="Mockup de l'auto-diagnostic marketing" class="w-full max-w-sm mx-auto">
                                 </div>
                                 <div class="space-y-6">
@@ -480,9 +476,10 @@ HERO SECTION
         </section>
 
         <!-- =================================================================
-        BLOG SECTION
+        BLOG SECTION (Fond gris)
         ================================================================== -->
-        <section class="section-padding bg-muted/30">
+        <!-- MODIFICATION : Remplacement de bg-muted/30 par bg-secondary pour un meilleur contraste -->
+        <section class="section-padding bg-secondary">
             <div class="container mx-auto container-padding">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16">
@@ -547,10 +544,10 @@ HERO SECTION
         </section>
 
 
-                <!-- =================================================================
-        FAQ SECTION
+        <!-- =================================================================
+        FAQ SECTION (Fond blanc)
         ================================================================== -->
-        <section class="section-padding">
+        <section class="section-padding bg-background">
             <div class="container mx-auto container-padding">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-16">
@@ -608,9 +605,10 @@ HERO SECTION
         
 
         <!-- =================================================================
-        FINAL CTA SECTION - MODIFIED
+        FINAL CTA SECTION (Fond gris)
         ================================================================== -->
-        <section id="appointment" class="section-padding bg-muted/30">
+        <!-- MODIFICATION : Remplacement de bg-muted/30 par bg-secondary pour un meilleur contraste -->
+        <section id="appointment" class="section-padding bg-secondary">
             <div class="container mx-auto container-padding">
                 <div class="max-w-5xl mx-auto">
                     <div class="text-center mb-16">
@@ -624,7 +622,6 @@ HERO SECTION
                         <div class="grid lg:grid-cols-2">
                             <!-- Left Column: Info -->
                             <div class="p-8 border-r border-border flex flex-col">
-                                <!-- Photo Placeholder -->
                                 <img src="images/portrait-julien-moreau.webp" alt="Portrait de Julien Moreau" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-white shadow-md">
                                 
                                 <p class="text-muted-foreground">Julien Moreau</p>
@@ -766,7 +763,6 @@ HERO SECTION
                         </div>
                     </div>
                     <div class="border-t border-background/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                        <!-- Moved copyright here for better layout on mobile -->
                         <div class="flex space-x-6 mt-4 md:mt-0">
                             <a href="#" class="text-background/60 hover:text-background text-sm transition-colors">Mentions Légales</a>
                             <a href="#" class="text-background/60 hover:text-background text-sm transition-colors">Politique de Confidentialité</a>
@@ -786,9 +782,7 @@ HERO SECTION
                 el.style.opacity = '1';
             });
 
-            // ==========================================================
-            // FAQ Accordion - LOGIQUE CORRIGÉE
-            // ==========================================================
+            // FAQ Accordion
             const faqQuestions = document.querySelectorAll('.faq-question');
             faqQuestions.forEach(question => {
                 question.addEventListener('click', () => {
@@ -796,14 +790,11 @@ HERO SECTION
                     const chevron = question.querySelector('.faq-chevron');
                     const isCurrentlyOpen = answer.style.maxHeight;
 
-                    // D'abord, on ferme TOUS les tiroirs
                     document.querySelectorAll('.faq-answer').forEach(ans => {
                         ans.style.maxHeight = null;
                         ans.previousElementSibling.querySelector('.faq-chevron').classList.remove('rotate-180');
                     });
 
-                    // Si le tiroir cliqué n'était PAS ouvert, on l'ouvre.
-                    // S'il était déjà ouvert, la première étape l'a fermé et on ne fait rien de plus.
                     if (!isCurrentlyOpen) {
                         answer.style.maxHeight = answer.scrollHeight + 'px';
                         chevron.classList.add('rotate-180');
@@ -811,10 +802,9 @@ HERO SECTION
                 });
             });
 
-            // Ajuste la hauteur max des tiroirs ouverts lors du redimensionnement de la fenêtre
             window.addEventListener('resize', () => {
                 document.querySelectorAll('.faq-answer').forEach(answer => {
-                    if (answer.style.maxHeight) { // S'il a une hauteur max (donc s'il est ouvert)
+                    if (answer.style.maxHeight) {
                         answer.style.maxHeight = answer.scrollHeight + 'px';
                     }
                 });
@@ -822,6 +812,5 @@ HERO SECTION
         });
     </script>
 
-    
 </body>
 </html>
