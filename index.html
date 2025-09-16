@@ -159,30 +159,36 @@
         </header>
 
         <!-- =================================================================
-        HERO SECTION
-        ================================================================== -->
-        <!-- MODIFICATION : Ajout de 'relative' et d'un conteneur pour l'image de fond -->
-        <section class="section-padding pt-32 relative" style="background: linear-gradient(180deg, #F6F8FA 0%, #FFFFFF 100%);">
-            <!-- MODIFICATION : Balise pour l'image de fond -->
-            <div class="absolute inset-0 -z-10">
-                <img src="images/hero-background.webp" alt="Image de fond représentant une stratégie marketing B2B" class="w-full h-full object-cover opacity-10">
+HERO SECTION
+================================================================== -->
+<section 
+    class="section-padding pt-32 relative" 
+    style="
+        background-image: 
+            /* Couche 1 (au-dessus) : Le dégradé semi-transparent */
+            linear-gradient(180deg, rgba(246, 248, 250, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%),
+            /* Couche 2 (en dessous) : Votre image de fond */
+            url('images/hero-background.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    ">
+    <div class="container mx-auto container-padding">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-hero mb-6 animate-on-load animate-fade-in">Arrêtez de Dépenser en Marketing. <br><span class="text-primary">Commencez à Investir.</span></h1>
+            <p class="text-body-large text-muted-foreground mb-8 animate-on-load animate-slide-up [animation-delay:200ms]">Stratégies marketing B2B pragmatiques pour PME industrielles et de services. Transformons vos visiteurs en clients rentables.</p>
+            <p class="text-body mb-12 max-w-3xl mx-auto animate-on-load animate-slide-up [animation-delay:300ms]">En tant qu'ancien Directeur Marketing de PME, je connais votre réalité. Mon rôle n'est pas de vous vendre des services à la mode, mais de construire avec vous un système d'acquisition de clients fiable, mesurable et adapté à votre budget.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-load animate-slide-up [animation-delay:400ms]">
+                <button onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap font-medium h-12 rounded-lg text-lg px-8 py-4 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
+                    Planifier mon audit stratégique offert
+                </button>
+                <button onclick="document.getElementById('methodology').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-12 rounded-lg text-lg px-8 py-4 transition-all hover:-translate-y-0.5 duration-300">
+                    Découvrir mon approche
+                </button>
             </div>
-            <div class="container mx-auto container-padding">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-hero mb-6 animate-on-load animate-fade-in">Arrêtez de Dépenser en Marketing. <br><span class="text-primary">Commencez à Investir.</span></h1>
-                    <p class="text-body-large text-muted-foreground mb-8 animate-on-load animate-slide-up [animation-delay:200ms]">Stratégies marketing B2B pragmatiques pour PME industrielles et de services. Transformons vos visiteurs en clients rentables.</p>
-                    <p class="text-body mb-12 max-w-3xl mx-auto animate-on-load animate-slide-up [animation-delay:300ms]">En tant qu'ancien Directeur Marketing de PME, je connais votre réalité. Mon rôle n'est pas de vous vendre des services à la mode, mais de construire avec vous un système d'acquisition de clients fiable, mesurable et adapté à votre budget.</p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-load animate-slide-up [animation-delay:400ms]">
-                        <button onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap font-medium h-12 rounded-lg text-lg px-8 py-4 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
-                            Planifier mon audit stratégique offert
-                        </button>
-                        <button onclick="document.getElementById('methodology').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-12 rounded-lg text-lg px-8 py-4 transition-all hover:-translate-y-0.5 duration-300">
-                            Découvrir mon approche
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- =================================================================
         ABOUT SECTION
