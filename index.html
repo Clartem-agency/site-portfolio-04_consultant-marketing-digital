@@ -39,6 +39,10 @@
             .animate-on-load {
                 opacity: 0;
             }
+            /* Initial state for Scroll Reveal elements (hidden before animation) */
+            .reveal {
+                visibility: hidden;
+            }
         }
         @layer components {
             .gradient-primary {
@@ -129,22 +133,22 @@
             <nav class="container mx-auto container-padding">
                 <div class="flex items-center justify-between py-4">
                     <!-- Logo -->
-                    <div class="flex items-center space-x-2">
+                    <a href="#" class="flex items-center space-x-2">
                         <div class="text-2xl font-bold text-primary">Levier Marketing</div>
-                    </div>
+                    </a>
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center space-x-8">
-                        <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">À Propos</button>
-                        <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">Solutions</button>
-                        <button onclick="document.getElementById('methodology').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">Méthodologie</button>
-                        <button onclick="document.getElementById('testimonials').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">Résultats</button>
-                        <button onclick="document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });" class="text-foreground hover:text-primary transition-colors">Ressources</button>
+                        <a href="#about" class="text-foreground hover:text-primary transition-colors">À Propos</a>
+                        <a href="#services" class="text-foreground hover:text-primary transition-colors">Solutions</a>
+                        <a href="#methodology" class="text-foreground hover:text-primary transition-colors">Méthodologie</a>
+                        <a href="#testimonials" class="text-foreground hover:text-primary transition-colors">Résultats</a>
+                        <a href="#resources" class="text-foreground hover:text-primary transition-colors">Ressources</a>
                     </div>
                     <!-- Desktop CTA -->
                     <div class="hidden md:block">
-                        <button onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 py-2 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
+                        <a href="#appointment" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 py-2 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
                             Planifier un appel stratégique
-                        </button>
+                        </a>
                     </div>
                     <!-- Mobile Menu Button -->
                     <button class="md:hidden" id="mobile-menu-button">
@@ -176,12 +180,12 @@ HERO SECTION
             <h1 class="text-hero mb-6 animate-on-load animate-fade-in">Arrêtez de Dépenser en Marketing. <br><span class="text-primary">Commencez à Investir.</span></h1>
             <p class="text-body-large text-muted-foreground mb-8 animate-on-load animate-slide-up [animation-delay:200ms]">Stratégies marketing B2B pragmatiques pour PME industrielles et de services. Transformons vos visiteurs en clients rentables.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-load animate-slide-up [animation-delay:400ms]">
-                <button onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap font-medium h-12 rounded-lg text-lg px-8 py-4 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
+                <a href="#appointment" class="inline-flex items-center justify-center whitespace-nowrap font-medium h-12 rounded-lg text-lg px-8 py-4 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
                     Planifier mon audit stratégique offert
-                </button>
-                <button onclick="document.getElementById('methodology').scrollIntoView({ behavior: 'smooth' });" class="inline-flex items-center justify-center whitespace-nowrap font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-12 rounded-lg text-lg px-8 py-4 transition-all hover:-translate-y-0.5 duration-300">
+                </a>
+                <a href="#methodology" class="inline-flex items-center justify-center whitespace-nowrap font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-12 rounded-lg text-lg px-8 py-4 transition-all hover:-translate-y-0.5 duration-300">
                     Découvrir mon approche
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -193,14 +197,14 @@ HERO SECTION
         <section id="about" class="section-padding bg-background">
             <div class="container mx-auto container-padding">
                 <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16 reveal">
                         <h2 class="text-section-title mb-6">Un Partenaire qui Comprend Votre Réalité</h2>
                     </div>
                     <div class="grid lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <img src="images/portrait-julien-moreau.webp" alt="Portrait professionnel de Julien Moreau" class="w-full max-w-md mx-auto rounded-xl shadow-elegant">
+                        <div class="reveal-left">
+                            <img src="images/portrait-julien-moreau.webp" alt="Portrait professionnel de Julien Moreau" class="w-full max-w-md mx-auto rounded-xl shadow-elegant" loading="lazy" decoding="async">
                         </div>
-                        <div class="space-y-6">
+                        <div class="space-y-6 reveal-right">
                             <h3 class="text-subsection">De Directeur Marketing à Consultant Stratégique</h3>
                             <div class="space-y-4 text-body text-muted-foreground">
                                 <p>Pendant plus de 10 ans, j'ai été Directeur Marketing et Commercial au sein d'une PME industrielle que j'ai accompagnée de 15 à 80 collaborateurs. J'ai vécu de l'intérieur les nuits blanches, la pression des objectifs et la frustration de devoir justifier chaque euro dépensé.</p>
@@ -239,17 +243,16 @@ HERO SECTION
         <!-- =================================================================
         SERVICES SECTION (Fond gris)
         ================================================================== -->
-        <!-- MODIFICATION : Remplacement de bg-muted/30 par bg-secondary pour un meilleur contraste -->
         <section id="services" class="section-padding bg-secondary">
             <div class="container mx-auto container-padding">
                 <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16 reveal">
                         <h2 class="text-section-title mb-6">Des Solutions Conçues pour la Croissance des PME B2B</h2>
                         <p class="text-body-large text-muted-foreground max-w-3xl mx-auto">Pas de catalogue de services interminable. Je propose trois offres claires et progressives, conçues pour vous apporter de la clarté, structurer vos actions et accélérer votre développement commercial.</p>
                     </div>
                     <div class="grid md:grid-cols-3 gap-8">
                         <!-- Service Card 1: Audit -->
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant hover:scale-105">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant hover:scale-105 reveal">
                             <div class="flex flex-col space-y-1.5 p-6 pb-4">
                                 <h3 class="text-subsection text-center mb-2">Audit Stratégique 360°</h3>
                                 <p class="text-sm text-center text-muted-foreground">La première étape indispensable pour arrêter de naviguer à vue. Nous analysons ensemble votre situation actuelle pour vous livrer une feuille de route claire et priorisée.</p>
@@ -270,12 +273,12 @@ HERO SECTION
                                 </div>
                                 <div class="border-t pt-4 mt-auto">
                                     <p class="text-sm text-muted-foreground mb-4">Offert lors de notre premier appel stratégique de 45 min.</p>
-                                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-11 px-6 py-2 w-full transition-all hover:-translate-y-0.5 duration-300">Obtenir ma feuille de route</button>
+                                    <a href="#appointment" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-11 px-6 py-2 w-full transition-all hover:-translate-y-0.5 duration-300">Obtenir ma feuille de route</a>
                                 </div>
                             </div>
                         </div>
                         <!-- Service Card 2: Main Offer -->
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant border-primary shadow-card scale-105">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant border-primary shadow-card scale-105 reveal">
                             <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
                                 <span class="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">Offre principale</span>
                             </div>
@@ -300,12 +303,12 @@ HERO SECTION
                                 </div>
                                 <div class="border-t pt-4 mt-auto">
                                     <p class="text-sm text-muted-foreground mb-4">Sur devis, accompagnement mensuel (engagement de 6 mois minimum).</p>
-                                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 py-2 w-full gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">Discutons de votre projet</button>
+                                    <a href="#appointment" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-11 px-6 py-2 w-full gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">Discutons de votre projet</a>
                                 </div>
                             </div>
                         </div>
                         <!-- Service Card 3: LinkedIn -->
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant hover:scale-105">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm relative h-full flex flex-col transition-all duration-300 hover:shadow-elegant hover:scale-105 reveal">
                             <div class="flex flex-col space-y-1.5 p-6 pb-4">
                                 <h3 class="text-subsection text-center mb-2">Atelier "Prospection LinkedIn Performante"</h3>
                                 <p class="text-sm text-center text-muted-foreground">Une formation-action intensive d'une journée pour vous et votre équipe commerciale. Transformez LinkedIn en votre meilleur outil de génération de rendez-vous qualifiés.</p>
@@ -326,7 +329,7 @@ HERO SECTION
                                 </div>
                                 <div class="border-t pt-4 mt-auto">
                                     <p class="text-sm text-muted-foreground mb-4">Forfait journée, en intra-entreprise.</p>
-                                    <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-11 px-6 py-2 w-full transition-all hover:-translate-y-0.5 duration-300">Demander le programme</button>
+                                    <a href="#appointment" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-11 px-6 py-2 w-full transition-all hover:-translate-y-0.5 duration-300">Demander le programme</a>
                                 </div>
                             </div>
                         </div>
@@ -341,13 +344,13 @@ HERO SECTION
         <section id="methodology" class="section-padding bg-background">
             <div class="container mx-auto container-padding">
                 <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16 reveal">
                         <h2 class="text-section-title mb-6">Ma Méthodologie : De la Confusion à la Clarté en 4 Étapes</h2>
                         <p class="text-body-large text-muted-foreground">Chaque PME est unique, mais le succès d'une stratégie marketing repose toujours sur une méthode rigoureuse. Voici le parcours que nous suivrons ensemble pour garantir des résultats concrets.</p>
                     </div>
                     <div class="space-y-12">
                         <!-- Step 1 -->
-                        <div class="relative">
+                        <div class="relative reveal">
                             <div class="absolute left-8 top-16 w-0.5 h-full bg-border -z-10"></div>
                             <div class="flex items-center mb-6">
                                 <div class="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mr-6 flex-shrink-0">01</div>
@@ -356,7 +359,7 @@ HERO SECTION
                             <div class="ml-22"><p class="text-body text-muted-foreground leading-relaxed">Notre collaboration commence par une phase d'écoute profonde. J'analyse vos objectifs, vos défis, votre marché et vos clients. C'est le fondement indispensable pour construire une stratégie qui vous ressemble et qui fonctionne.</p></div>
                         </div>
                         <!-- Step 2 -->
-                        <div class="relative">
+                        <div class="relative reveal">
                              <div class="absolute left-8 top-16 w-0.5 h-full bg-border -z-10"></div>
                             <div class="flex items-center mb-6">
                                 <div class="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mr-6 flex-shrink-0">02</div>
@@ -365,7 +368,7 @@ HERO SECTION
                             <div class="ml-22"><p class="text-body text-muted-foreground leading-relaxed">Sur la base du diagnostic, nous élaborons ensemble votre plan d'action marketing. Pas de rapport de 100 pages, mais une feuille de route claire, avec des objectifs mesurables (KPIs), un budget et un calendrier réaliste.</p></div>
                         </div>
                         <!-- Step 3 -->
-                        <div class="relative">
+                        <div class="relative reveal">
                              <div class="absolute left-8 top-16 w-0.5 h-full bg-border -z-10"></div>
                             <div class="flex items-center mb-6">
                                 <div class="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mr-6 flex-shrink-0">03</div>
@@ -374,7 +377,7 @@ HERO SECTION
                             <div class="ml-22"><p class="text-body text-muted-foreground leading-relaxed">Je vous accompagne dans la mise en œuvre. Selon vos besoins, je peux piloter les prestataires, former vos équipes ou prendre en charge directement certaines actions. Nous avançons, mesurons et ajustons en permanence.</p></div>
                         </div>
                         <!-- Step 4 -->
-                        <div class="relative">
+                        <div class="relative reveal">
                             <div class="flex items-center mb-6">
                                 <div class="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mr-6 flex-shrink-0">04</div>
                                 <div class="flex-1"><h3 class="text-subsection font-bold text-foreground">Mesure &amp; Optimisation Continue</h3></div>
@@ -389,23 +392,22 @@ HERO SECTION
         <!-- =================================================================
         TESTIMONIALS SECTION (Fond gris)
         ================================================================== -->
-        <!-- MODIFICATION : Remplacement de bg-muted/30 par bg-secondary pour un meilleur contraste -->
         <section id="testimonials" class="section-padding bg-secondary">
             <div class="container mx-auto container-padding">
                 <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16 reveal">
                         <h2 class="text-section-title mb-6">Leurs Résultats, Votre Garantie</h2>
                         <p class="text-body-large text-muted-foreground">La meilleure façon de juger de mon travail est d'écouter ceux qui m'ont fait confiance.</p>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8">
                         <!-- Testimonial Card 1 -->
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full shadow-card hover:shadow-elegant transition-all duration-300">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full shadow-card hover:shadow-elegant transition-all duration-300 reveal">
                             <div class="p-8">
                                 <div class="mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary opacity-50"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg></div>
                                 <blockquote class="text-body-large mb-8 leading-relaxed">"Avant de travailler avec Julien, nous investissions dans le marketing sans vraiment savoir ce qui fonctionnait. Nous étions invisibles en ligne. Son approche structurée et son expérience de la réalité des PME ont tout changé. En 6 mois, il a clarifié notre message, refondu notre site et mis en place une stratégie de contenu sur LinkedIn. Le résultat : notre nombre de leads qualifiés a triplé et notre chiffre d'affaires a augmenté de 15%. C'est le meilleur investissement que nous ayons fait."</blockquote>
                                 <div class="flex items-center space-x-4">
                                     <div class="w-16 h-16 rounded-full overflow-hidden bg-muted">
-                                        <img src="images/temoignage-sophie-bernard.webp" alt="Photo de Sophie Bernard" class="w-full h-full object-cover">
+                                        <img src="images/temoignage-sophie-bernard.webp" alt="Photo de Sophie Bernard" class="w-full h-full object-cover" loading="lazy" decoding="async">
                                     </div>
                                     <div>
                                         <div class="font-semibold text-foreground">Sophie Bernard</div>
@@ -415,13 +417,13 @@ HERO SECTION
                             </div>
                         </div>
                         <!-- Testimonial Card 2 -->
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full shadow-card hover:shadow-elegant transition-all duration-300">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full shadow-card hover:shadow-elegant transition-all duration-300 reveal">
                             <div class="p-8">
                                 <div class="mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-primary opacity-50"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg></div>
                                 <blockquote class="text-body-large mb-8 leading-relaxed">"Julien n'est pas un consultant ordinaire. C'est un véritable partenaire qui s'est imprégné de notre culture d'entreprise. Son atelier LinkedIn a été un électrochoc pour notre équipe commerciale. Une approche pragmatique, directement applicable, qui a généré des résultats dès la première semaine."</blockquote>
                                 <div class="flex items-center space-x-4">
                                     <div class="w-16 h-16 rounded-full overflow-hidden bg-muted">
-                                        <img src="images/temoignage-marc-dubois.webp" alt="Photo de Marc Dubois" class="w-full h-full object-cover">
+                                        <img src="images/temoignage-marc-dubois.webp" alt="Photo de Marc Dubois" class="w-full h-full object-cover" loading="lazy" decoding="async">
                                     </div>
                                     <div>
                                         <div class="font-semibold text-foreground">Marc Dubois</div>
@@ -441,16 +443,16 @@ HERO SECTION
         <section id="resources" class="section-padding bg-background">
             <div class="container mx-auto container-padding">
                 <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16 reveal">
                         <h2 class="text-section-title mb-6">Votre Marketing est-il un Centre de Coût ou un Moteur de Croissance ?</h2>
                     </div>
-                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm shadow-elegant">
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm shadow-elegant reveal">
                         <div class="p-8 md:p-12">
                             <div class="grid md:grid-cols-2 gap-8 items-center">
-                                <div>
-                                    <img src="images/ressource-autodiagnostic-mockup.webp" alt="Mockup de l'auto-diagnostic marketing" class="w-full max-w-sm mx-auto">
+                                <div class="reveal-left">
+                                    <img src="images/ressource-autodiagnostic-mockup.webp" alt="Mockup de l'auto-diagnostic marketing" class="w-full max-w-sm mx-auto" loading="lazy" decoding="async">
                                 </div>
-                                <div class="space-y-6">
+                                <div class="space-y-6 reveal-right">
                                     <div>
                                         <h3 class="text-subsection mb-4">L'Auto-Diagnostic Marketing pour PME</h3>
                                         <p class="text-body-large text-primary mb-4">La checklist en 7 piliers pour auditer votre stratégie et identifier vos 3 actions prioritaires pour générer des leads qualifiés ce trimestre.</p>
@@ -477,17 +479,16 @@ HERO SECTION
         <!-- =================================================================
         BLOG SECTION (Fond gris)
         ================================================================== -->
-        <!-- MODIFICATION : Remplacement de bg-muted/30 par bg-secondary pour un meilleur contraste -->
         <section class="section-padding bg-secondary">
             <div class="container mx-auto container-padding">
                 <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16 reveal">
                         <h2 class="text-section-title mb-6">Levier de Croissance : Analyses &amp; Conseils Pragmatiques</h2>
                         <p class="text-body-large text-muted-foreground">Retrouvez ici mes analyses et retours d'expérience pour aider les dirigeants de PME à prendre les bonnes décisions marketing.</p>
                     </div>
                     <div class="grid md:grid-cols-3 gap-8">
                         <!-- Blog Card 1 -->
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group reveal">
                             <div class="flex flex-col space-y-1.5 p-6 pb-4">
                                 <div class="flex items-center justify-between mb-3">
                                     <span class="text-xs font-medium text-primary uppercase tracking-wide">Stratégie d'Acquisition</span>
@@ -497,14 +498,14 @@ HERO SECTION
                             </div>
                             <div class="p-6 pt-0 mt-auto">
                                 <p class="text-muted-foreground text-sm leading-relaxed mb-6">Votre site n'est pas une brochure. C'est votre commercial le plus travailleur. Pourtant, 90% des sites de PME B2B commettent ces 3 erreurs fatales qui font fuir les prospects...</p>
-                                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
+                                <a href="#" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
                                     Lire l'article
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <!-- Blog Card 2 -->
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group reveal">
                             <div class="flex flex-col space-y-1.5 p-6 pb-4">
                                 <div class="flex items-center justify-between mb-3">
                                     <span class="text-xs font-medium text-primary uppercase tracking-wide">LinkedIn B2B</span>
@@ -514,14 +515,14 @@ HERO SECTION
                             </div>
                             <div class="p-6 pt-0 mt-auto">
                                 <p class="text-muted-foreground text-sm leading-relaxed mb-6">Votre équipe commerciale passe des heures sur LinkedIn pour des résultats décevants ? C'est normal. L'ère du 'copier-coller' est terminée. Voici une approche qui...</p>
-                                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
+                                <a href="#" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
                                     Lire l'article
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <!-- Blog Card 3 -->
-                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm h-full flex flex-col shadow-card hover:shadow-elegant transition-all duration-300 group reveal">
                             <div class="flex flex-col space-y-1.5 p-6 pb-4">
                                 <div class="flex items-center justify-between mb-3">
                                     <span class="text-xs font-medium text-primary uppercase tracking-wide">Pilotage Marketing</span>
@@ -531,10 +532,10 @@ HERO SECTION
                             </div>
                             <div class="p-6 pt-0 mt-auto">
                                 <p class="text-muted-foreground text-sm leading-relaxed mb-6">Noyé sous les données ? Taux de clics, impressions, portée... Oubliez la complexité. Pour piloter votre croissance, seuls 3 indicateurs comptent vraiment. Les voici...</p>
-                                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
+                                <a href="#" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm p-0 h-auto font-medium text-primary hover:text-primary-light group">
                                     Lire l'article
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -549,10 +550,10 @@ HERO SECTION
         <section class="section-padding bg-background">
             <div class="container mx-auto container-padding">
                 <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16 reveal">
                         <h2 class="text-section-title mb-6">Vos Questions, Mes Réponses</h2>
                     </div>
-                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm shadow-card">
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm shadow-card reveal">
                         <div class="p-8">
                             <div class="space-y-0" id="faq-accordion">
                                 <!-- FAQ Item 1 -->
@@ -609,17 +610,17 @@ HERO SECTION
         <section id="appointment" class="section-padding bg-secondary">
             <div class="container mx-auto container-padding">
                 <div class="max-w-5xl mx-auto">
-                    <div class="text-center mb-16">
+                    <div class="text-center mb-16 reveal">
                         <h2 class="text-section-title mb-6">Prêt(e) à Transformer Votre Marketing en Levier de Croissance ?</h2>
                         <p class="text-body-large text-muted-foreground max-w-3xl mx-auto">Le moyen le plus efficace de savoir si nous pouvons collaborer est d'en discuter. Réservez directement dans mon agenda un créneau pour un premier échange, gratuit et sans engagement.</p>
                     </div>
 
                     <!-- Calendly Widget -->
-                    <div class="rounded-xl border bg-card text-card-foreground shadow-elegant overflow-hidden">
+                    <div class="rounded-xl border bg-card text-card-foreground shadow-elegant overflow-hidden reveal">
                         <div class="grid lg:grid-cols-2">
                             <!-- Left Column: Info -->
                             <div class="p-8 border-r border-border flex flex-col">
-                                <img src="images/portrait-julien-moreau.webp" alt="Portrait de Julien Moreau" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-white shadow-md">
+                                <img src="images/portrait-julien-moreau.webp" alt="Portrait de Julien Moreau" class="w-20 h-20 rounded-full object-cover mb-4 border-2 border-white shadow-md" loading="lazy" decoding="async">
                                 
                                 <p class="text-muted-foreground">Julien Moreau</p>
                                 <h3 class="text-2xl font-bold text-foreground mb-4">Appel Stratégique - Audit Offert (45 min)</h3>
@@ -712,7 +713,6 @@ HERO SECTION
                                 </div>
                             </div>
                         </div>
-                        <!-- NOUVEL ÉLÉMENT AJOUTÉ ICI -->
                         <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="block text-center text-xs text-muted-foreground py-3 bg-card border-t border-border hover:text-foreground transition-colors">
                             Alimenté par <strong>Calendly</strong>
                         </a>
@@ -738,10 +738,10 @@ HERO SECTION
                         <div>
                             <h4 class="font-semibold mb-4">Explorer</h4>
                             <div class="space-y-2">
-                                <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' });" class="block text-background/80 hover:text-background transition-colors">À Propos</button>
-                                <button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' });" class="block text-background/80 hover:text-background transition-colors">Solutions</button>
-                                <button onclick="document.getElementById('methodology').scrollIntoView({ behavior: 'smooth' });" class="block text-background/80 hover:text-background transition-colors">Méthodologie</button>
-                                <button onclick="document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });" class="block text-background/80 hover:text-background transition-colors">Planifier un appel</button>
+                                <a href="#about" class="block text-background/80 hover:text-background transition-colors">À Propos</a>
+                                <a href="#services" class="block text-background/80 hover:text-background transition-colors">Solutions</a>
+                                <a href="#methodology" class="block text-background/80 hover:text-background transition-colors">Méthodologie</a>
+                                <a href="#appointment" class="block text-background/80 hover:text-background transition-colors">Planifier un appel</a>
                             </div>
                         </div>
                         <!-- Column 3: Contact -->
@@ -774,10 +774,13 @@ HERO SECTION
         </footer>
     </div>
     
-    <!-- JavaScript for interactivity -->
+    <!-- Scripts for interactivity, smooth scroll & scroll reveal -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // On-load animations
+            // On-load animations for Hero section
             const animatedElements = document.querySelectorAll('.animate-on-load');
             animatedElements.forEach(el => {
                 el.style.opacity = '1';
@@ -792,13 +795,18 @@ HERO SECTION
                     const isCurrentlyOpen = answer.style.maxHeight;
 
                     document.querySelectorAll('.faq-answer').forEach(ans => {
-                        ans.style.maxHeight = null;
-                        ans.previousElementSibling.querySelector('.faq-chevron').classList.remove('rotate-180');
+                        if (ans !== answer) {
+                           ans.style.maxHeight = null;
+                           ans.previousElementSibling.querySelector('.faq-chevron').classList.remove('rotate-180');
+                        }
                     });
 
                     if (!isCurrentlyOpen) {
                         answer.style.maxHeight = answer.scrollHeight + 'px';
                         chevron.classList.add('rotate-180');
+                    } else {
+                        answer.style.maxHeight = null;
+                        chevron.classList.remove('rotate-180');
                     }
                 });
             });
@@ -810,6 +818,63 @@ HERO SECTION
                     }
                 });
             });
+
+            // =================================================================
+            // NEW: SMOOTH SCROLL & SCROLL REVEAL (for large screens only)
+            // =================================================================
+            const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+
+            if (isDesktop) {
+                // 1. Smooth Scrolling with Lenis
+                const lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                });
+
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+
+                // Handle anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        lenis.scrollTo(this.getAttribute('href'));
+                    });
+                });
+
+                // 2. Scroll Reveal with ScrollReveal.js
+                const sr = ScrollReveal({
+                    origin: 'bottom',
+                    distance: '50px',
+                    duration: 800,
+                    easing: 'cubic-bezier(0.5, 0, 0, 1)',
+                    reset: false,
+                    viewFactor: 0.2,
+                    // Use the 'reveal' class to trigger animations
+                    // and 'visibility: hidden' to prevent flickering
+                    useDelay: 'always',
+                    container: document.documentElement, // Use documentElement for Lenis compatibility
+                });
+
+                // General reveal for sections, titles, cards
+                sr.reveal('.reveal', {
+                    interval: 100
+                });
+
+                // Specific reveals for directional animations
+                sr.reveal('.reveal-left', {
+                    origin: 'left',
+                    distance: '80px',
+                });
+
+                sr.reveal('.reveal-right', {
+                    origin: 'right',
+                    distance: '80px',
+                });
+            }
         });
     </script>
 
